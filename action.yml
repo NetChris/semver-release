@@ -51,6 +51,6 @@ runs:
       id: version_gate
       if: ${{ steps.parse.outputs.pre_release_version != '' }}
       run: |
-        echo ERROR: ${{ steps.parse.outputs.semver_version }} is a pre-release version.  Use a GitHub release or tag as SemVer without a pre-release version. 1>&2
+        echo ERROR: Cannot release with this version. ${{ steps.parse.outputs.semver_version }} is a pre-release version. 1>&2
         exit 1
       shell: bash
